@@ -1,4 +1,4 @@
-package entities
+package indicator
 
 import (
 	"tradechef_backtest/constants"
@@ -21,5 +21,5 @@ func NewAdx() IIndicator {
 }
 
 type AdxSettings struct {
-	AdxLength float64
+	AdxLength int
 }

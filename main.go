@@ -1,11 +1,23 @@
 package main
 
 import (
-	"tradechef_backtest/internal/entities"
+	"fmt"
+	"tradechef_backtest/constants"
+	"tradechef_backtest/internal/indicator"
 )
 
 func main() {
-	adx := entities.NewAdx()
-	var settings = adx.GetSettings().(entities.AdxSettings)
-	print(settings.AdxLength)
+
+	ema := indicator.NewEma()
+	emaSettings := indicator.IndicatorSettingsAttr{
+		Attr:  constants.EmaLength,
+		Value: 20,
+	}
+	emaSettings2 := indicator.IndicatorSettingsAttr{
+		Attr:  constants.EmaLength,
+		Value: 40,
+	}
+	ema.SetSettings(emaSettings, emaSettings2)
+	fmt.Println(ema.GetSettings().(*indicator.EmaSettings).EmaLength)
+
 }

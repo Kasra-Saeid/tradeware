@@ -1,4 +1,4 @@
-package entities
+package indicator
 
 import (
 	"tradechef_backtest/constants"
@@ -31,15 +31,18 @@ func (i *Indicator) SetName(name types.IndicatorName) {
 	i.Name = name
 }
 
-func (i *Indicator) SetSettings(values ...types.IndicatorSettingsAttr) {
+func (i *Indicator) SetSettings(attrs ...IndicatorSettingsAttr) {
 	switch i.Settings.(type) {
-	case AdxSettings:
-		for _, v := range values {
-			if v.Name == constants.AdxLength {
-				i.Settings = &AdxSettings{
-					AdxLength: v.Value,
-				}
-				break
+	case *AdxSettings:
+		for _, v := range attrs {
+			if v.Attr == constants.AdxLength {
+				i.Settings.(*AdxSettings).AdxLength = v.Value
+			}
+		}
+	case *EmaSettings:
+		for _, v := range attrs {
+			if v.Attr == constants.EmaLength {
+				i.Settings.(*EmaSettings).EmaLength = v.Value
 			}
 		}
 

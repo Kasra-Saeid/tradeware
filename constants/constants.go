@@ -11,4 +11,5 @@ const (
 
 const (
 	AdxLength = types.IndicatorSettingsAttrName(iota)
+	EmaLength
 )

@@ -1,4 +1,4 @@
-package entities
+package kline
 
 type Kline struct {
 }
