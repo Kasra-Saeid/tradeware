@@ -27,6 +27,12 @@ func (i *Indicator) GetSettings() types.IndicatorSettings {
 		return i.Settings.(*indicators.AdxSettings)
 	case *indicators.EmaSettings:
 		return i.Settings.(*indicators.EmaSettings)
+	case *indicators.AtrSettings:
+		return i.Settings.(*indicators.AtrSettings)
+	case *indicators.KeltnerWidthSettings:
+		return i.Settings.(*indicators.KeltnerWidthSettings)
+	case *indicators.SuperTrendSettings:
+		return i.Settings.(*indicators.SuperTrendSettings)
 	default:
 		return i.Settings
 	}
@@ -44,7 +50,7 @@ func (i *Indicator) SetName(name types.IndicatorName) {
 	i.Name = name
 }
 
-func (i *Indicator) SetSettings(attrs ...IndicatorSettingsAttr) {
+func (i *Indicator) SetSettings(source *types.Source, attrs ...IndicatorSettingsAttr) {
 	switch i.Settings.(type) {
 	case *indicators.AdxSettings:
 		for _, v := range attrs {
@@ -58,6 +64,40 @@ func (i *Indicator) SetSettings(attrs ...IndicatorSettingsAttr) {
 				i.Settings.(*indicators.EmaSettings).EmaLength = (int)(v.Value)
 			}
 		}
+	case *indicators.AtrSettings:
+		for _, v := range attrs {
+			if v.Attr == constants.AtrLength {
+				i.Settings.(*indicators.AtrSettings).AtrLength = (int)(v.Value)
+			}
+		}
+	case *indicators.KeltnerWidthSettings:
+		if source == nil {
+			panic((any)("source can not be nil"))
+		}
+		for _, v := range attrs {
+			if v.Attr == constants.EmaLength {
+				i.Settings.(*indicators.KeltnerWidthSettings).EmaLength = (int)(v.Value)
+			} else if v.Attr == constants.AtrLength {
+				i.Settings.(*indicators.KeltnerWidthSettings).AtrLength = (int)(v.Value)
+			} else if v.Attr == constants.Multiplier {
+				i.Settings.(*indicators.KeltnerWidthSettings).Multiplier = (int)(v.Value)
+			}
+		}
+		i.Settings.(*indicators.KeltnerWidthSettings).Source = *source
+
+	case *indicators.SuperTrendSettings:
+		if source == nil {
+			panic((any)("source can not be nil"))
+		}
+		for _, v := range attrs {
+			if v.Attr == constants.AtrLength {
+				i.Settings.(*indicators.SuperTrendSettings).AtrLength = (int)(v.Value)
+			} else if v.Attr == constants.Multiplier {
+				i.Settings.(*indicators.SuperTrendSettings).Multiplier = v.Value
+			}
+		}
+		i.Settings.(*indicators.SuperTrendSettings).Source = *source
+
 	}
 }
 

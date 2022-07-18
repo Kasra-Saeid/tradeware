@@ -3,6 +3,7 @@ package indicators
 import (
 	"tradechef_backtest/constants"
 	"tradechef_backtest/internal/indicator"
+	"tradechef_backtest/types"
 )
 
 type Ema struct {
@@ -15,6 +16,7 @@ func NewEma() indicator.IIndicator {
 			Name: constants.Ema,
 			Settings: &EmaSettings{
 				EmaLength: 14,
+				Source:    constants.Close,
 			},
 			TimeFrame: constants.ThreeMin,
 			Value:     make([]float64, 0, 0),
@@ -24,4 +26,5 @@ func NewEma() indicator.IIndicator {
 
 type EmaSettings struct {
 	EmaLength int
+	Source    types.Source
 }

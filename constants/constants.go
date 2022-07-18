@@ -7,11 +7,14 @@ const (
 	Ema
 	SuperTrend
 	KeltnerWidth
+	Atr
 )
 
 const (
 	AdxLength = types.IndicatorSettingsAttrName(iota)
 	EmaLength
+	AtrLength
+	Multiplier
 )
 
 const (
@@ -29,4 +32,22 @@ const (
 	ThreeDay     = types.TimeFrame("3d")
 	OneWeek      = types.TimeFrame("1w")
 	OneMonth     = types.TimeFrame("1m")
+)
+
+const (
+	Buy   = types.Side("Buy")
+	Sell  = types.Side("Sell")
+	Long  = types.Side("Long")
+	Short = types.Side("Short")
+)
+
+const (
+	Open = types.Source(iota)
+	High
+	Low
+	Close
+	Hl2
+	Hlc3
+	Ohlc4
+	Hlcc4
 )

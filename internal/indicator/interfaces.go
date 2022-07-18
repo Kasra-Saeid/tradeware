@@ -11,6 +11,6 @@ type IIndicator interface {
 	GetValue() []float64
 	SetName(name types.IndicatorName)
 	SetValue(value []float64)
-	SetSettings(values ...IndicatorSettingsAttr)
+	SetSettings(source *types.Source, values ...IndicatorSettingsAttr)
 	SetTimeFrame(timeFrame types.TimeFrame)
 }
