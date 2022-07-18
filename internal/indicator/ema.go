@@ -15,7 +15,8 @@ func NewEma() IIndicator {
 			Settings: &EmaSettings{
 				EmaLength: 14,
 			},
-			Value: make([]float64, 0, 0),
+			TimeFrame: constants.ThreeMin,
+			Value:     make([]float64, 0, 0),
 		},
 	}
 }

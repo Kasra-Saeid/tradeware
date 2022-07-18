@@ -11,11 +11,12 @@ type Adx struct {
 func NewAdx() IIndicator {
 	return &Adx{
 		Indicator: Indicator{
-			Name:  constants.Adx,
-			Value: make([]float64, 0, 0),
+			Name: constants.Adx,
 			Settings: &AdxSettings{
 				AdxLength: 14,
 			},
+			TimeFrame: constants.ThreeMin,
+			Value:     make([]float64, 0, 0),
 		},
 	}
 }

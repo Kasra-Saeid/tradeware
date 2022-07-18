@@ -4,5 +4,5 @@ import "tradechef_backtest/types"
 
 type IndicatorSettingsAttr struct {
 	Attr  types.IndicatorSettingsAttrName
-	Value int
+	Value float64
 }

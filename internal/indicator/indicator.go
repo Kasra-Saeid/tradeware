@@ -6,9 +6,10 @@ import (
 )
 
 type Indicator struct {
-	Name     types.IndicatorName
-	Settings types.IndicatorSettings
-	Value    []float64
+	Name      types.IndicatorName
+	Settings  types.IndicatorSettings
+	TimeFrame types.TimeFrame
+	Value     []float64
 }
 
 func (i *Indicator) GetValue() []float64 {
@@ -20,7 +21,18 @@ func (i *Indicator) GetName() types.IndicatorName {
 }
 
 func (i *Indicator) GetSettings() types.IndicatorSettings {
-	return i.Settings
+	switch i.Settings.(type) {
+	case *AdxSettings:
+		return i.Settings.(*AdxSettings)
+	case *EmaSettings:
+		return i.Settings.(*EmaSettings)
+	default:
+		return i.Settings
+	}
+}
+
+func (i *Indicator) GetTimeFrame() types.TimeFrame {
+	return i.TimeFrame
 }
 
 func (i *Indicator) SetValue(value []float64) {
@@ -36,16 +48,18 @@ func (i *Indicator) SetSettings(attrs ...IndicatorSettingsAttr) {
 	case *AdxSettings:
 		for _, v := range attrs {
 			if v.Attr == constants.AdxLength {
-				i.Settings.(*AdxSettings).AdxLength = v.Value
+				i.Settings.(*AdxSettings).AdxLength = (int)(v.Value)
 			}
 		}
 	case *EmaSettings:
 		for _, v := range attrs {
 			if v.Attr == constants.EmaLength {
-				i.Settings.(*EmaSettings).EmaLength = v.Value
+				i.Settings.(*EmaSettings).EmaLength = (int)(v.Value)
 			}
 		}
-
 	}
+}
 
+func (i *Indicator) SetTimeFrame(timeFrame types.TimeFrame) {
+	i.TimeFrame = timeFrame
 }
