@@ -1,16 +1,17 @@
-package indicator
+package indicators
 
 import (
 	"tradechef_backtest/constants"
+	"tradechef_backtest/internal/indicator"
 )
 
 type Ema struct {
-	Indicator
+	indicator.Indicator
 }
 
-func NewEma() IIndicator {
+func NewEma() indicator.IIndicator {
 	return &Ema{
-		Indicator: Indicator{
+		Indicator: indicator.Indicator{
 			Name: constants.Ema,
 			Settings: &EmaSettings{
 				EmaLength: 14,

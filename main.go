@@ -4,11 +4,12 @@ import (
 	"fmt"
 	"tradechef_backtest/constants"
 	"tradechef_backtest/internal/indicator"
+	"tradechef_backtest/internal/indicator/indicators"
 )
 
 func main() {
 
-	ema := indicator.NewEma()
+	ema := indicators.NewEma()
 	emaSettings := indicator.IndicatorSettingsAttr{
 		Attr:  constants.EmaLength,
 		Value: 20,
@@ -18,6 +19,6 @@ func main() {
 		Value: 40,
 	}
 	ema.SetSettings(emaSettings, emaSettings2)
-	fmt.Println(ema.GetSettings().(*indicator.EmaSettings).EmaLength)
+	fmt.Println(ema.GetSettings().(*indicators.EmaSettings).EmaLength)
 
 }

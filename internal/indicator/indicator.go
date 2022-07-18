@@ -2,6 +2,7 @@ package indicator
 
 import (
 	"tradechef_backtest/constants"
+	"tradechef_backtest/internal/indicator/indicators"
 	"tradechef_backtest/types"
 )
 
@@ -22,10 +23,10 @@ func (i *Indicator) GetName() types.IndicatorName {
 
 func (i *Indicator) GetSettings() types.IndicatorSettings {
 	switch i.Settings.(type) {
-	case *AdxSettings:
-		return i.Settings.(*AdxSettings)
-	case *EmaSettings:
-		return i.Settings.(*EmaSettings)
+	case *indicators.AdxSettings:
+		return i.Settings.(*indicators.AdxSettings)
+	case *indicators.EmaSettings:
+		return i.Settings.(*indicators.EmaSettings)
 	default:
 		return i.Settings
 	}
@@ -45,16 +46,16 @@ func (i *Indicator) SetName(name types.IndicatorName) {
 
 func (i *Indicator) SetSettings(attrs ...IndicatorSettingsAttr) {
 	switch i.Settings.(type) {
-	case *AdxSettings:
+	case *indicators.AdxSettings:
 		for _, v := range attrs {
 			if v.Attr == constants.AdxLength {
-				i.Settings.(*AdxSettings).AdxLength = (int)(v.Value)
+				i.Settings.(*indicators.AdxSettings).AdxLength = (int)(v.Value)
 			}
 		}
-	case *EmaSettings:
+	case *indicators.EmaSettings:
 		for _, v := range attrs {
 			if v.Attr == constants.EmaLength {
-				i.Settings.(*EmaSettings).EmaLength = (int)(v.Value)
+				i.Settings.(*indicators.EmaSettings).EmaLength = (int)(v.Value)
 			}
 		}
 	}

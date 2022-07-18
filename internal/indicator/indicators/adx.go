@@ -1,16 +1,17 @@
-package indicator
+package indicators
 
 import (
 	"tradechef_backtest/constants"
+	"tradechef_backtest/internal/indicator"
 )
 
 type Adx struct {
-	Indicator
+	indicator.Indicator
 }
 
-func NewAdx() IIndicator {
+func NewAdx() indicator.IIndicator {
 	return &Adx{
-		Indicator: Indicator{
+		Indicator: indicator.Indicator{
 			Name: constants.Adx,
 			Settings: &AdxSettings{
 				AdxLength: 14,
