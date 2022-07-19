@@ -2,17 +2,17 @@ package indicators
 
 import (
 	"github.com/kasrasaeed/trade_vessel/constants"
-	"github.com/kasrasaeed/trade_vessel/internal/indicator"
+	indicator2 "github.com/kasrasaeed/trade_vessel/indicator"
 	"github.com/kasrasaeed/trade_vessel/types"
 )
 
 type SuperTrend struct {
-	indicator.Indicator
+	indicator2.Indicator
 }
 
-func NewSuperTrend() indicator.IIndicator {
+func NewSuperTrend() indicator2.IIndicator {
 	return &SuperTrend{
-		indicator.Indicator{
+		indicator2.Indicator{
 			Name: constants.SuperTrend,
 			Settings: &SuperTrendSettings{
 				AtrLength:  10,

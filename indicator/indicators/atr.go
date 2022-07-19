@@ -2,16 +2,16 @@ package indicators
 
 import (
 	"github.com/kasrasaeed/trade_vessel/constants"
-	"github.com/kasrasaeed/trade_vessel/internal/indicator"
+	indicator2 "github.com/kasrasaeed/trade_vessel/indicator"
 )
 
 type Atr struct {
-	indicator.Indicator
+	indicator2.Indicator
 }
 
-func NewAtr() indicator.IIndicator {
+func NewAtr() indicator2.IIndicator {
 	return &Atr{
-		indicator.Indicator{
+		indicator2.Indicator{
 			Name: constants.Atr,
 			Settings: &AtrSettings{
 				AtrLength: 14,

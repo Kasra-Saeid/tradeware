@@ -2,17 +2,17 @@ package indicators
 
 import (
 	"github.com/kasrasaeed/trade_vessel/constants"
-	"github.com/kasrasaeed/trade_vessel/internal/indicator"
+	indicator2 "github.com/kasrasaeed/trade_vessel/indicator"
 	"github.com/kasrasaeed/trade_vessel/types"
 )
 
 type KeltnerWidth struct {
-	indicator.Indicator
+	indicator2.Indicator
 }
 
-func NewKeltnerWidth() indicator.IIndicator {
+func NewKeltnerWidth() indicator2.IIndicator {
 	return &KeltnerWidth{
-		indicator.Indicator{
+		indicator2.Indicator{
 			Name: constants.KeltnerWidth,
 			Settings: &KeltnerWidthSettings{
 				EmaLength:  14,
