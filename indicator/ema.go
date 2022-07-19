@@ -1,18 +1,17 @@
-package indicators
+package indicator
 
 import (
 	"github.com/kasrasaeed/trade_vessel/constants"
-	indicator2 "github.com/kasrasaeed/trade_vessel/indicator"
 	"github.com/kasrasaeed/trade_vessel/types"
 )
 
 type Ema struct {
-	indicator2.Indicator
+	Indicator
 }
 
-func NewEma() indicator2.IIndicator {
+func NewEma() IIndicator {
 	return &Ema{
-		Indicator: indicator2.Indicator{
+		Indicator: Indicator{
 			Name: constants.Ema,
 			Settings: &EmaSettings{
 				EmaLength: 14,

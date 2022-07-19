@@ -2,7 +2,6 @@ package indicator
 
 import (
 	"github.com/kasrasaeed/trade_vessel/constants"
-	"github.com/kasrasaeed/trade_vessel/indicators"
 	"github.com/kasrasaeed/trade_vessel/types"
 )
 
@@ -23,16 +22,16 @@ func (i *Indicator) GetName() types.IndicatorName {
 
 func (i *Indicator) GetSettings() types.IndicatorSettings {
 	switch i.Settings.(type) {
-	case *indicators.AdxSettings:
-		return i.Settings.(*indicators.AdxSettings)
-	case *indicators.EmaSettings:
-		return i.Settings.(*indicators.EmaSettings)
-	case *indicators.AtrSettings:
-		return i.Settings.(*indicators.AtrSettings)
-	case *indicators.KeltnerWidthSettings:
-		return i.Settings.(*indicators.KeltnerWidthSettings)
-	case *indicators.SuperTrendSettings:
-		return i.Settings.(*indicators.SuperTrendSettings)
+	case *AdxSettings:
+		return i.Settings.(*AdxSettings)
+	case *EmaSettings:
+		return i.Settings.(*EmaSettings)
+	case *AtrSettings:
+		return i.Settings.(*AtrSettings)
+	case *KeltnerWidthSettings:
+		return i.Settings.(*KeltnerWidthSettings)
+	case *SuperTrendSettings:
+		return i.Settings.(*SuperTrendSettings)
 	default:
 		return i.Settings
 	}
@@ -52,51 +51,51 @@ func (i *Indicator) SetName(name types.IndicatorName) {
 
 func (i *Indicator) SetSettings(source *types.Source, attrs ...IndicatorSettingsAttr) {
 	switch i.Settings.(type) {
-	case *indicators.AdxSettings:
+	case *AdxSettings:
 		for _, v := range attrs {
 			if v.Attr == constants.AdxLength {
-				i.Settings.(*indicators.AdxSettings).AdxLength = (int)(v.Value)
+				i.Settings.(*AdxSettings).AdxLength = (int)(v.Value)
 			}
 		}
-	case *indicators.EmaSettings:
+	case *EmaSettings:
 		for _, v := range attrs {
 			if v.Attr == constants.EmaLength {
-				i.Settings.(*indicators.EmaSettings).EmaLength = (int)(v.Value)
+				i.Settings.(*EmaSettings).EmaLength = (int)(v.Value)
 			}
 		}
-	case *indicators.AtrSettings:
+	case *AtrSettings:
 		for _, v := range attrs {
 			if v.Attr == constants.AtrLength {
-				i.Settings.(*indicators.AtrSettings).AtrLength = (int)(v.Value)
+				i.Settings.(*AtrSettings).AtrLength = (int)(v.Value)
 			}
 		}
-	case *indicators.KeltnerWidthSettings:
+	case *KeltnerWidthSettings:
 		if source == nil {
 			panic((any)("source can not be nil"))
 		}
 		for _, v := range attrs {
 			if v.Attr == constants.EmaLength {
-				i.Settings.(*indicators.KeltnerWidthSettings).EmaLength = (int)(v.Value)
+				i.Settings.(*KeltnerWidthSettings).EmaLength = (int)(v.Value)
 			} else if v.Attr == constants.AtrLength {
-				i.Settings.(*indicators.KeltnerWidthSettings).AtrLength = (int)(v.Value)
+				i.Settings.(*KeltnerWidthSettings).AtrLength = (int)(v.Value)
 			} else if v.Attr == constants.Multiplier {
-				i.Settings.(*indicators.KeltnerWidthSettings).Multiplier = (int)(v.Value)
+				i.Settings.(*KeltnerWidthSettings).Multiplier = (int)(v.Value)
 			}
 		}
-		i.Settings.(*indicators.KeltnerWidthSettings).Source = *source
+		i.Settings.(*KeltnerWidthSettings).Source = *source
 
-	case *indicators.SuperTrendSettings:
+	case *SuperTrendSettings:
 		if source == nil {
 			panic((any)("source can not be nil"))
 		}
 		for _, v := range attrs {
 			if v.Attr == constants.AtrLength {
-				i.Settings.(*indicators.SuperTrendSettings).AtrLength = (int)(v.Value)
+				i.Settings.(*SuperTrendSettings).AtrLength = (int)(v.Value)
 			} else if v.Attr == constants.Multiplier {
-				i.Settings.(*indicators.SuperTrendSettings).Multiplier = v.Value
+				i.Settings.(*SuperTrendSettings).Multiplier = v.Value
 			}
 		}
-		i.Settings.(*indicators.SuperTrendSettings).Source = *source
+		i.Settings.(*SuperTrendSettings).Source = *source
 
 	}
 }

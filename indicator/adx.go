@@ -1,17 +1,16 @@
-package indicators
+package indicator
 
 import (
 	"github.com/kasrasaeed/trade_vessel/constants"
-	indicator2 "github.com/kasrasaeed/trade_vessel/indicator"
 )
 
 type Adx struct {
-	indicator2.Indicator
+	Indicator
 }
 
-func NewAdx() indicator2.IIndicator {
+func NewAdx() IIndicator {
 	return &Adx{
-		Indicator: indicator2.Indicator{
+		Indicator: Indicator{
 			Name: constants.Adx,
 			Settings: &AdxSettings{
 				AdxLength: 14,
