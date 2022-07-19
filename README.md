@@ -9,7 +9,7 @@ In this situation you should make a "CrossUp" rule and pass kline float64 slice,
 Also note that you can add as many rules as you want to the strategy and check if all rules are satisfied any time.
 </br>
 </br>
-I used Factory method design pattern and composite method inorder to avoid spaghetti code and reduce future maintain time.
+I used Factory method design pattern and composite method inorder to avoid spaghetti code, reduce future maintain time and there was not any bette solutions to check all rules recursively in "or" or "and" rules.
 </br>
 </br>
 All contributions are welcome
