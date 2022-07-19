@@ -1,6 +1,6 @@
 package constants
 
-import "tradechef_backtest/types"
+import "github.com/kasrasaeed/trade_vessel/types"
 
 const (
 	Adx = types.IndicatorName(iota)

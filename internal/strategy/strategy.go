@@ -1,6 +1,6 @@
 package strategy
 
-import "tradechef_backtest/internal/strategy/rules"
+import "github.com/kasrasaeed/trade_vessel/internal/strategy/rules"
 
 type Strategy struct {
 	entryRules      []rules.Rules

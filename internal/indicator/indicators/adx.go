@@ -1,8 +1,8 @@
 package indicators
 
 import (
-	"tradechef_backtest/constants"
-	"tradechef_backtest/internal/indicator"
+	"github.com/kasrasaeed/trade_vessel/constants"
+	"github.com/kasrasaeed/trade_vessel/internal/indicator"
 )
 
 type Adx struct {

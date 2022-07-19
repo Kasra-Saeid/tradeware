@@ -1,9 +1,9 @@
 package indicator
 
 import (
-	"tradechef_backtest/constants"
-	"tradechef_backtest/internal/indicator/indicators"
-	"tradechef_backtest/types"
+	"github.com/kasrasaeed/trade_vessel/constants"
+	"github.com/kasrasaeed/trade_vessel/internal/indicator/indicators"
+	"github.com/kasrasaeed/trade_vessel/types"
 )
 
 type Indicator struct {

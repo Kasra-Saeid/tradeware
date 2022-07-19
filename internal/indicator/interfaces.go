@@ -1,7 +1,7 @@
 package indicator
 
 import (
-	"tradechef_backtest/types"
+	"github.com/kasrasaeed/trade_vessel/types"
 )
 
 type IIndicator interface {

@@ -1,8 +1,8 @@
 package order
 
 import (
-	"tradechef_backtest/constants"
-	"tradechef_backtest/types"
+	"github.com/kasrasaeed/trade_vessel/constants"
+	"github.com/kasrasaeed/trade_vessel/types"
 )
 
 type Order struct {
