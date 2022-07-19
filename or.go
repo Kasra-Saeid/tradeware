@@ -1,4 +1,4 @@
-package rules
+package trade_vessel
 
 type Or struct {
 	rules []Rules

@@ -1,9 +1,4 @@
-package indicator
-
-import (
-	"github.com/kasrasaeed/trade_vessel/trade_middleware/constants"
-	"github.com/kasrasaeed/trade_vessel/trade_middleware/types"
-)
+package trade_vessel
 
 type SuperTrend struct {
 	Indicator
@@ -12,13 +7,13 @@ type SuperTrend struct {
 func NewSuperTrend() IIndicator {
 	return &SuperTrend{
 		Indicator{
-			Name: constants.SuperTrend,
+			Name: SUPER_TREND,
 			Settings: &SuperTrendSettings{
 				AtrLength:  10,
 				Multiplier: 4.4,
-				Source:     constants.Hlcc4,
+				Source:     Hlcc4,
 			},
-			TimeFrame: constants.ThreeMin,
+			TimeFrame: ThreeMin,
 			Value:     make([]float64, 0, 0),
 		},
 	}
@@ -27,5 +22,5 @@ func NewSuperTrend() IIndicator {
 type SuperTrendSettings struct {
 	AtrLength  int
 	Multiplier float64
-	Source     types.Source
+	Source     Source
 }

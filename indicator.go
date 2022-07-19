@@ -1,14 +1,9 @@
-package indicator
-
-import (
-	"github.com/kasrasaeed/trade_vessel/trade_middleware/constants"
-	types2 "github.com/kasrasaeed/trade_vessel/trade_middleware/types"
-)
+package trade_vessel
 
 type Indicator struct {
-	Name      types2.IndicatorName
-	Settings  types2.IndicatorSettings
-	TimeFrame types2.TimeFrame
+	Name      IndicatorName
+	Settings  IndicatorSettings
+	TimeFrame TimeFrame
 	Value     []float64
 }
 
@@ -16,11 +11,11 @@ func (i *Indicator) GetValue() []float64 {
 	return i.Value
 }
 
-func (i *Indicator) GetName() types2.IndicatorName {
+func (i *Indicator) GetName() IndicatorName {
 	return i.Name
 }
 
-func (i *Indicator) GetSettings() types2.IndicatorSettings {
+func (i *Indicator) GetSettings() IndicatorSettings {
 	switch i.Settings.(type) {
 	case *AdxSettings:
 		return i.Settings.(*AdxSettings)
@@ -37,7 +32,7 @@ func (i *Indicator) GetSettings() types2.IndicatorSettings {
 	}
 }
 
-func (i *Indicator) GetTimeFrame() types2.TimeFrame {
+func (i *Indicator) GetTimeFrame() TimeFrame {
 	return i.TimeFrame
 }
 
@@ -45,27 +40,27 @@ func (i *Indicator) SetValue(value []float64) {
 	i.Value = value
 }
 
-func (i *Indicator) SetName(name types2.IndicatorName) {
+func (i *Indicator) SetName(name IndicatorName) {
 	i.Name = name
 }
 
-func (i *Indicator) SetSettings(source *types2.Source, attrs ...IndicatorSettingsAttr) {
+func (i *Indicator) SetSettings(source *Source, attrs ...IndicatorSettingsAttr) {
 	switch i.Settings.(type) {
 	case *AdxSettings:
 		for _, v := range attrs {
-			if v.Attr == constants.AdxLength {
+			if v.Attr == AdxLength {
 				i.Settings.(*AdxSettings).AdxLength = (int)(v.Value)
 			}
 		}
 	case *EmaSettings:
 		for _, v := range attrs {
-			if v.Attr == constants.EmaLength {
+			if v.Attr == EmaLength {
 				i.Settings.(*EmaSettings).EmaLength = (int)(v.Value)
 			}
 		}
 	case *AtrSettings:
 		for _, v := range attrs {
-			if v.Attr == constants.AtrLength {
+			if v.Attr == AtrLength {
 				i.Settings.(*AtrSettings).AtrLength = (int)(v.Value)
 			}
 		}
@@ -74,11 +69,11 @@ func (i *Indicator) SetSettings(source *types2.Source, attrs ...IndicatorSetting
 			panic((any)("source can not be nil"))
 		}
 		for _, v := range attrs {
-			if v.Attr == constants.EmaLength {
+			if v.Attr == EmaLength {
 				i.Settings.(*KeltnerWidthSettings).EmaLength = (int)(v.Value)
-			} else if v.Attr == constants.AtrLength {
+			} else if v.Attr == AtrLength {
 				i.Settings.(*KeltnerWidthSettings).AtrLength = (int)(v.Value)
-			} else if v.Attr == constants.Multiplier {
+			} else if v.Attr == Multiplier {
 				i.Settings.(*KeltnerWidthSettings).Multiplier = (int)(v.Value)
 			}
 		}
@@ -89,9 +84,9 @@ func (i *Indicator) SetSettings(source *types2.Source, attrs ...IndicatorSetting
 			panic((any)("source can not be nil"))
 		}
 		for _, v := range attrs {
-			if v.Attr == constants.AtrLength {
+			if v.Attr == AtrLength {
 				i.Settings.(*SuperTrendSettings).AtrLength = (int)(v.Value)
-			} else if v.Attr == constants.Multiplier {
+			} else if v.Attr == Multiplier {
 				i.Settings.(*SuperTrendSettings).Multiplier = v.Value
 			}
 		}
@@ -100,6 +95,6 @@ func (i *Indicator) SetSettings(source *types2.Source, attrs ...IndicatorSetting
 	}
 }
 
-func (i *Indicator) SetTimeFrame(timeFrame types2.TimeFrame) {
+func (i *Indicator) SetTimeFrame(timeFrame TimeFrame) {
 	i.TimeFrame = timeFrame
 }

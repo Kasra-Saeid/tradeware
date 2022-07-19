@@ -1,8 +1,4 @@
-package indicator
-
-import (
-	"github.com/kasrasaeed/trade_vessel/trade_middleware/constants"
-)
+package trade_vessel
 
 type Adx struct {
 	Indicator
@@ -11,11 +7,11 @@ type Adx struct {
 func NewAdx() IIndicator {
 	return &Adx{
 		Indicator: Indicator{
-			Name: constants.Adx,
+			Name: ADX,
 			Settings: &AdxSettings{
 				AdxLength: 14,
 			},
-			TimeFrame: constants.ThreeMin,
+			TimeFrame: ThreeMin,
 			Value:     make([]float64, 0, 0),
 		},
 	}

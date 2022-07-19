@@ -1,4 +1,4 @@
-package kline
+package trade_vessel
 
 type Kline struct {
 	open   float64

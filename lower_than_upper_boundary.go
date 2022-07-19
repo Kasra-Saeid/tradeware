@@ -1,4 +1,4 @@
-package rules
+package trade_vessel
 
 type LowerThanUpperBoundary struct {
 	values        []float64

@@ -1,16 +1,12 @@
-package strategy
-
-import (
-	"github.com/kasrasaeed/trade_vessel/trade_middleware/rules"
-)
+package trade_vessel
 
 type Strategy struct {
-	entryRules      []rules.Rules
-	takeProfitRules []rules.Rules
-	stopLossRules   []rules.Rules
+	entryRules      []Rules
+	takeProfitRules []Rules
+	stopLossRules   []Rules
 }
 
-func NewStrategy(entryRules, takeProfitRules, stopLossRules []rules.Rules) *Strategy {
+func NewStrategy(entryRules, takeProfitRules, stopLossRules []Rules) *Strategy {
 	return &Strategy{
 		entryRules:      entryRules,
 		takeProfitRules: takeProfitRules,
@@ -18,15 +14,15 @@ func NewStrategy(entryRules, takeProfitRules, stopLossRules []rules.Rules) *Stra
 	}
 }
 
-func (s *Strategy) AddEntryRule(er rules.Rules) {
+func (s *Strategy) AddEntryRule(er Rules) {
 	s.entryRules = append(s.entryRules, er)
 }
 
-func (s *Strategy) AddTakeProfitRule(tpr rules.Rules) {
+func (s *Strategy) AddTakeProfitRule(tpr Rules) {
 	s.takeProfitRules = append(s.takeProfitRules, tpr)
 }
 
-func (s *Strategy) AddStopLossRule(slr rules.Rules) {
+func (s *Strategy) AddStopLossRule(slr Rules) {
 	s.stopLossRules = append(s.stopLossRules, slr)
 }
 

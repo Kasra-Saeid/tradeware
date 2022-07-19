@@ -1,9 +1,4 @@
-package order
-
-import (
-	"github.com/kasrasaeed/trade_vessel/trade_middleware/constants"
-	types2 "github.com/kasrasaeed/trade_vessel/trade_middleware/types"
-)
+package trade_vessel
 
 type Order struct {
 	entryPrice        float64
@@ -11,13 +6,13 @@ type Order struct {
 	takeProfitTrigger bool
 	takeProfitUnit    float64
 	qty               float64
-	side              types2.Side
+	side              Side
 	symbol            string
 	leverage          float64
-	status            types2.Status
+	status            Status
 }
 
-func NewOrder(ep, sl float64, tpUnit, qty float64, side types2.Side, symbol string, leverage float64) *Order {
+func NewOrder(ep, sl float64, tpUnit, qty float64, side Side, symbol string, leverage float64) *Order {
 	return &Order{
 		entryPrice:        0,
 		stopLossPrice:     0,
@@ -27,11 +22,11 @@ func NewOrder(ep, sl float64, tpUnit, qty float64, side types2.Side, symbol stri
 		side:              "",
 		symbol:            "",
 		leverage:          0,
-		status:            constants.Available,
+		status:            Available,
 	}
 }
 
-func (o *Order) OpenOrder(ep, sl float64, tpUnit, qty float64, side types2.Side, symbol string, leverage float64) {
+func (o *Order) OpenOrder(ep, sl float64, tpUnit, qty float64, side Side, symbol string, leverage float64) {
 	o.entryPrice = ep
 	o.stopLossPrice = sl
 	o.takeProfitTrigger = false
@@ -40,7 +35,7 @@ func (o *Order) OpenOrder(ep, sl float64, tpUnit, qty float64, side types2.Side,
 	o.side = side
 	o.symbol = symbol
 	o.leverage = leverage
-	o.status = constants.InProgress
+	o.status = InProgress
 }
 
 func (o *Order) CloseOrder() {
@@ -52,7 +47,7 @@ func (o *Order) CloseOrder() {
 	o.side = ""
 	o.symbol = ""
 	o.leverage = 0
-	o.status = constants.Available
+	o.status = Available
 }
 
 func (o *Order) OrderTpTrigger() {

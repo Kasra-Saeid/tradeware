@@ -1,4 +1,4 @@
-package rules
+package trade_vessel
 
 type CrossUp struct {
 	firstValues  []float64

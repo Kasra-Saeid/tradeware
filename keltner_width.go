@@ -1,9 +1,4 @@
-package indicator
-
-import (
-	"github.com/kasrasaeed/trade_vessel/trade_middleware/constants"
-	"github.com/kasrasaeed/trade_vessel/trade_middleware/types"
-)
+package trade_vessel
 
 type KeltnerWidth struct {
 	Indicator
@@ -12,14 +7,14 @@ type KeltnerWidth struct {
 func NewKeltnerWidth() IIndicator {
 	return &KeltnerWidth{
 		Indicator{
-			Name: constants.KeltnerWidth,
+			Name: KELTNER_WIDTH,
 			Settings: &KeltnerWidthSettings{
 				EmaLength:  14,
 				Multiplier: 2,
 				AtrLength:  10,
-				Source:     constants.Close,
+				Source:     Close,
 			},
-			TimeFrame: constants.ThreeMin,
+			TimeFrame: ThreeMin,
 			Value:     make([]float64, 0, 0),
 		},
 	}
@@ -29,5 +24,5 @@ type KeltnerWidthSettings struct {
 	EmaLength  int
 	Multiplier int
 	AtrLength  int
-	Source     types.Source
+	Source     Source
 }

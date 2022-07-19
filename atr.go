@@ -1,8 +1,4 @@
-package indicator
-
-import (
-	"github.com/kasrasaeed/trade_vessel/trade_middleware/constants"
-)
+package trade_vessel
 
 type Atr struct {
 	Indicator
@@ -11,11 +7,11 @@ type Atr struct {
 func NewAtr() IIndicator {
 	return &Atr{
 		Indicator{
-			Name: constants.Atr,
+			Name: ATR,
 			Settings: &AtrSettings{
 				AtrLength: 14,
 			},
-			TimeFrame: constants.ThreeMin,
+			TimeFrame: ThreeMin,
 			Value:     make([]float64, 0, 0),
 		},
 	}
