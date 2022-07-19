@@ -1,14 +1,22 @@
 package rules
 
 type LowerThanUpperBoundary struct {
-	Values        []float64
-	UpperBoundary float64
-	IndexBar      int
+	values        []float64
+	upperBoundary float64
+	indexBar      int
+}
+
+func NewLowerThanUpperBoundary(values []float64, upperBoundary float64, indexBar int) *LowerThanUpperBoundary {
+	return &LowerThanUpperBoundary{
+		values:        values,
+		upperBoundary: upperBoundary,
+		indexBar:      indexBar,
+	}
 }
 
 func (l *LowerThanUpperBoundary) Check() bool {
-	latestValue := l.Values[len(l.Values)-l.IndexBar]
-	if latestValue < l.UpperBoundary {
+	latestValue := l.values[len(l.values)-l.indexBar]
+	if latestValue < l.upperBoundary {
 		return true
 	}
 	return false

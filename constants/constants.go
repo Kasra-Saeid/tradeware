@@ -51,3 +51,8 @@ const (
 	Ohlc4
 	Hlcc4
 )
+
+const (
+	InProgress = types.Status("InProgress")
+	Available  = types.Status("Available")
+)

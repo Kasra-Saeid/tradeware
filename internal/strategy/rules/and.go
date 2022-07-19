@@ -1,14 +1,16 @@
-package logical_operation
-
-import (
-	"tradechef_backtest/internal/strategy/rules"
-)
+package rules
 
 type And struct {
-	rules []rules.Rules
+	rules []Rules
 }
 
-func (o *And) AddRule(rule rules.Rules) {
+func NewAnd() *And {
+	return &And{
+		rules: make([]Rules, 0, 0),
+	}
+}
+
+func (o *And) AddRule(rule Rules) {
 	o.rules = append(o.rules, rule)
 }
 func (o *And) Check() bool {

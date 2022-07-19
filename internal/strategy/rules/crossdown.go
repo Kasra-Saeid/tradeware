@@ -1,16 +1,24 @@
 package rules
 
 type CrossDown struct {
-	FirstValues  []float64
-	SecondValues []float64
-	IndexBar     int
+	firstValues  []float64
+	secondValues []float64
+	indexBar     int
+}
+
+func NewCrossDown(firstValues, SecondValues []float64, indexBar int) *CrossDown {
+	return &CrossDown{
+		firstValues:  firstValues,
+		secondValues: SecondValues,
+		indexBar:     indexBar,
+	}
 }
 
 func (t *CrossDown) Check() bool {
-	firstValues := t.FirstValues
-	secondValues := t.SecondValues
-	if firstValues[len(firstValues)-t.IndexBar] < secondValues[len(secondValues)-t.IndexBar] &&
-		firstValues[len(firstValues)-(t.IndexBar-1)] > secondValues[len(secondValues)-(t.IndexBar-1)] {
+	firstValues := t.firstValues
+	secondValues := t.secondValues
+	if firstValues[len(firstValues)-t.indexBar] < secondValues[len(secondValues)-t.indexBar] &&
+		firstValues[len(firstValues)-(t.indexBar-1)] > secondValues[len(secondValues)-(t.indexBar-1)] {
 		return true
 	}
 	return false

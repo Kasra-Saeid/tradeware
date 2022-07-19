@@ -1,14 +1,16 @@
-package logical_operation
-
-import (
-	"tradechef_backtest/internal/strategy/rules"
-)
+package rules
 
 type Or struct {
-	rules []rules.Rules
+	rules []Rules
 }
 
-func (o *Or) AddRule(rule rules.Rules) {
+func NewOr() *Or {
+	return &Or{
+		rules: make([]Rules, 0, 0),
+	}
+}
+
+func (o *Or) AddRule(rule Rules) {
 	o.rules = append(o.rules, rule)
 }
 func (o *Or) Check() bool {
