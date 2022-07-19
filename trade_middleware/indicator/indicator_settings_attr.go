@@ -1,6 +1,8 @@
 package indicator
 
-import "github.com/kasrasaeed/trade_vessel/types"
+import (
+	"github.com/kasrasaeed/trade_vessel/trade_middleware/types"
+)
 
 type IndicatorSettingsAttr struct {
 	Attr  types.IndicatorSettingsAttrName

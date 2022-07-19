@@ -1,14 +1,14 @@
 package indicator
 
 import (
-	"github.com/kasrasaeed/trade_vessel/constants"
-	"github.com/kasrasaeed/trade_vessel/types"
+	"github.com/kasrasaeed/trade_vessel/trade_middleware/constants"
+	types2 "github.com/kasrasaeed/trade_vessel/trade_middleware/types"
 )
 
 type Indicator struct {
-	Name      types.IndicatorName
-	Settings  types.IndicatorSettings
-	TimeFrame types.TimeFrame
+	Name      types2.IndicatorName
+	Settings  types2.IndicatorSettings
+	TimeFrame types2.TimeFrame
 	Value     []float64
 }
 
@@ -16,11 +16,11 @@ func (i *Indicator) GetValue() []float64 {
 	return i.Value
 }
 
-func (i *Indicator) GetName() types.IndicatorName {
+func (i *Indicator) GetName() types2.IndicatorName {
 	return i.Name
 }
 
-func (i *Indicator) GetSettings() types.IndicatorSettings {
+func (i *Indicator) GetSettings() types2.IndicatorSettings {
 	switch i.Settings.(type) {
 	case *AdxSettings:
 		return i.Settings.(*AdxSettings)
@@ -37,7 +37,7 @@ func (i *Indicator) GetSettings() types.IndicatorSettings {
 	}
 }
 
-func (i *Indicator) GetTimeFrame() types.TimeFrame {
+func (i *Indicator) GetTimeFrame() types2.TimeFrame {
 	return i.TimeFrame
 }
 
@@ -45,11 +45,11 @@ func (i *Indicator) SetValue(value []float64) {
 	i.Value = value
 }
 
-func (i *Indicator) SetName(name types.IndicatorName) {
+func (i *Indicator) SetName(name types2.IndicatorName) {
 	i.Name = name
 }
 
-func (i *Indicator) SetSettings(source *types.Source, attrs ...IndicatorSettingsAttr) {
+func (i *Indicator) SetSettings(source *types2.Source, attrs ...IndicatorSettingsAttr) {
 	switch i.Settings.(type) {
 	case *AdxSettings:
 		for _, v := range attrs {
@@ -100,6 +100,6 @@ func (i *Indicator) SetSettings(source *types.Source, attrs ...IndicatorSettings
 	}
 }
 
-func (i *Indicator) SetTimeFrame(timeFrame types.TimeFrame) {
+func (i *Indicator) SetTimeFrame(timeFrame types2.TimeFrame) {
 	i.TimeFrame = timeFrame
 }

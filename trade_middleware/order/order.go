@@ -1,8 +1,8 @@
 package order
 
 import (
-	"github.com/kasrasaeed/trade_vessel/constants"
-	"github.com/kasrasaeed/trade_vessel/types"
+	"github.com/kasrasaeed/trade_vessel/trade_middleware/constants"
+	types2 "github.com/kasrasaeed/trade_vessel/trade_middleware/types"
 )
 
 type Order struct {
@@ -11,13 +11,13 @@ type Order struct {
 	takeProfitTrigger bool
 	takeProfitUnit    float64
 	qty               float64
-	side              types.Side
+	side              types2.Side
 	symbol            string
 	leverage          float64
-	status            types.Status
+	status            types2.Status
 }
 
-func NewOrder(ep, sl float64, tpUnit, qty float64, side types.Side, symbol string, leverage float64) *Order {
+func NewOrder(ep, sl float64, tpUnit, qty float64, side types2.Side, symbol string, leverage float64) *Order {
 	return &Order{
 		entryPrice:        0,
 		stopLossPrice:     0,
@@ -31,7 +31,7 @@ func NewOrder(ep, sl float64, tpUnit, qty float64, side types.Side, symbol strin
 	}
 }
 
-func (o *Order) OpenOrder(ep, sl float64, tpUnit, qty float64, side types.Side, symbol string, leverage float64) {
+func (o *Order) OpenOrder(ep, sl float64, tpUnit, qty float64, side types2.Side, symbol string, leverage float64) {
 	o.entryPrice = ep
 	o.stopLossPrice = sl
 	o.takeProfitTrigger = false

@@ -1,8 +1,8 @@
 package indicator
 
 import (
-	"github.com/kasrasaeed/trade_vessel/constants"
-	"github.com/kasrasaeed/trade_vessel/types"
+	"github.com/kasrasaeed/trade_vessel/trade_middleware/constants"
+	"github.com/kasrasaeed/trade_vessel/trade_middleware/types"
 )
 
 type Ema struct {
