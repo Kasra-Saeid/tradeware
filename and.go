@@ -10,11 +10,11 @@ func NewAnd() *And {
 	}
 }
 
-func (o *And) AddRule(rule Rules) {
-	o.rules = append(o.rules, rule)
+func (a *And) AddRule(rule Rules) {
+	a.rules = append(a.rules, rule)
 }
-func (o *And) Check() bool {
-	for _, v := range o.rules {
+func (a *And) Check() bool {
+	for _, v := range a.rules {
 		if !v.Check() {
 			return false
 		}

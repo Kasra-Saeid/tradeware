@@ -14,11 +14,11 @@ func NewCrossUp(firstValues, SecondValues []float64, indexBar int) *CrossUp {
 	}
 }
 
-func (t *CrossUp) Check() bool {
-	firstValues := t.firstValues
-	secondValues := t.secondValues
-	if firstValues[len(firstValues)-t.indexBar] > secondValues[len(secondValues)-t.indexBar] &&
-		firstValues[len(firstValues)-(t.indexBar-1)] < secondValues[len(secondValues)-(t.indexBar-1)] {
+func (c *CrossUp) Check() bool {
+	firstValues := c.firstValues
+	secondValues := c.secondValues
+	if firstValues[len(firstValues)-c.indexBar] > secondValues[len(secondValues)-c.indexBar] &&
+		firstValues[len(firstValues)-(c.indexBar-1)] < secondValues[len(secondValues)-(c.indexBar-1)] {
 		return true
 	}
 	return false

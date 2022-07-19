@@ -13,9 +13,9 @@ func NewHigherThanUpperBoundary(values []float64, upperBoundary float64, indexBa
 		indexBar:      indexBar,
 	}
 }
-func (l *HigherThanUpperBoundary) Check() bool {
-	latestValue := l.values[len(l.values)-l.indexBar]
-	if latestValue > l.upperBoundary {
+func (h *HigherThanUpperBoundary) Check() bool {
+	latestValue := h.values[len(h.values)-h.indexBar]
+	if latestValue > h.upperBoundary {
 		return true
 	}
 	return false
