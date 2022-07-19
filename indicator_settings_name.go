@@ -1,3 +1,3 @@
-package trade_vessel
+package trade_middleware
 
 type IndicatorSettingsAttrName int

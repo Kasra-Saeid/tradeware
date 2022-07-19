@@ -1,4 +1,4 @@
-package trade_vessel
+package trade_middleware
 
 const (
 	ADX = IndicatorName(iota)

@@ -1,4 +1,4 @@
-package trade_vessel
+package trade_middleware
 
 type Adx struct {
 	Indicator

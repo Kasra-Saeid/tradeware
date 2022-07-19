@@ -1,4 +1,4 @@
-package trade_vessel
+package trade_middleware
 
 type CrossDown struct {
 	firstValues  []float64
