@@ -1,3 +1,3 @@
-package trade_middleware
+package tradeware
 
 type IndicatorName int

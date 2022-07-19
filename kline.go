@@ -1,4 +1,4 @@
-package trade_middleware
+package tradeware
 
 type Kline struct {
 	open   float64

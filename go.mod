@@ -1,4 +1,4 @@
-module github.com/kasrasaeed/trade_middleware
+module github.com/kasrasaeed/tradeware
 
 go 1.18
 

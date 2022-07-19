@@ -1,4 +1,4 @@
-package trade_middleware
+package tradeware
 
 type InAbsoluteBoundaries struct {
 	upperBoundary float64
