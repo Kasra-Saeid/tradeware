@@ -1,19 +1,23 @@
 package tradeware
 
 type Kline struct {
-	open   float64
-	high   float64
-	low    float64
-	close  float64
-	volume float64
+	Open     float64
+	High     float64
+	Low      float64
+	Close    float64
+	Volume   float64
+	OpenTime int64
+	Interval int
 }
 
-func NewKline(open, high, low, close, volume float64) *Kline {
+func NewKline(open, high, low, close, volume float64, OpenTime int64, interval int) *Kline {
 	return &Kline{
-		open:   open,
-		high:   high,
-		low:    low,
-		close:  close,
-		volume: volume,
+		Open:     open,
+		High:     high,
+		Low:      low,
+		Close:    close,
+		Volume:   volume,
+		OpenTime: OpenTime,
+		Interval: interval,
 	}
 }
