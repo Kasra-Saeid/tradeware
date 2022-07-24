@@ -40,7 +40,7 @@ const (
 )
 
 const (
-	Open = Source(iota)
+	Open = SourceName(iota)
 	High
 	Low
 	Close

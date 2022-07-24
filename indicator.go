@@ -44,7 +44,7 @@ func (i *Indicator) SetName(name IndicatorName) {
 	i.Name = name
 }
 
-func (i *Indicator) SetSettings(source *Source, attrs ...IndicatorSettingsAttr) {
+func (i *Indicator) SetSettings(source *SourceName, attrs ...IndicatorSettingsAttr) {
 	switch i.Settings.(type) {
 	case *AdxSettings:
 		for _, v := range attrs {

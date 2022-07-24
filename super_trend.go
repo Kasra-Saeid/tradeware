@@ -22,5 +22,5 @@ func NewSuperTrend() IIndicator {
 type SuperTrendSettings struct {
 	AtrLength  int
 	Multiplier float64
-	Source     Source
+	Source     SourceName
 }

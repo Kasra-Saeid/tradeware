@@ -24,5 +24,5 @@ type KeltnerWidthSettings struct {
 	EmaLength  int
 	Multiplier int
 	AtrLength  int
-	Source     Source
+	Source     SourceName
 }

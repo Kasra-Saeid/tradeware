@@ -1,3 +1,3 @@
 package tradeware
 
-type Source int
+type SourceName int

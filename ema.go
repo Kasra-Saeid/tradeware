@@ -20,5 +20,5 @@ func NewEma() IIndicator {
 
 type EmaSettings struct {
 	EmaLength int
-	Source    Source
+	Source    SourceName
 }

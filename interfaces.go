@@ -7,7 +7,7 @@ type IIndicator interface {
 	GetValue() []float64
 	SetName(name IndicatorName)
 	SetValue(value []float64)
-	SetSettings(source *Source, values ...IndicatorSettingsAttr)
+	SetSettings(source *SourceName, values ...IndicatorSettingsAttr)
 	SetTimeFrame(timeFrame TimeFrame)
 }
 
