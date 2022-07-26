@@ -10,8 +10,8 @@ func NewOr() *Or {
 	}
 }
 
-func (o *Or) AddRule(rule Rules) {
-	o.rules = append(o.rules, rule)
+func (o *Or) AddRule(rule ...Rules) {
+	o.rules = append(o.rules, rule...)
 }
 func (o *Or) Check() bool {
 	for _, v := range o.rules {

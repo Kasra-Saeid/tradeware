@@ -10,8 +10,8 @@ func NewAnd() *And {
 	}
 }
 
-func (a *And) AddRule(rule Rules) {
-	a.rules = append(a.rules, rule)
+func (a *And) AddRule(rule ...Rules) {
+	a.rules = append(a.rules, rule...)
 }
 func (a *And) Check() bool {
 	for _, v := range a.rules {
