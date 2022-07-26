@@ -7,7 +7,7 @@ import (
 
 type TimeFrame string
 
-func timeFrameToSecond(timeFrame TimeFrame) (int64, error) {
+func TimeFrameToSecond(timeFrame TimeFrame) (int64, error) {
 	switch timeFrame {
 	case "d":
 		return 24 * 60 * 60, nil
