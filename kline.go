@@ -7,10 +7,10 @@ type Kline struct {
 	Close    float64
 	Volume   float64
 	OpenTime int64
-	Interval int
+	Interval TimeFrame
 }
 
-func NewKline(open, high, low, close, volume float64, OpenTime int64, interval int) *Kline {
+func NewKline(open, high, low, close, volume float64, OpenTime int64, interval TimeFrame) *Kline {
 	return &Kline{
 		Open:     open,
 		High:     high,
