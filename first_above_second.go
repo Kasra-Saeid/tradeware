@@ -1,20 +1,20 @@
 package tradeware
 
-type CloseAbove struct {
+type FirstAboveSecond struct {
 	firstValues  []float64
 	secondValues []float64
 	indexBar     int
 }
 
-func NewCloseAbove(firstValues, SecondValues []float64, indexBar int) *CloseAbove {
-	return &CloseAbove{
+func NewCloseAbove(firstValues, SecondValues []float64, indexBar int) *FirstAboveSecond {
+	return &FirstAboveSecond{
 		firstValues:  firstValues,
 		secondValues: SecondValues,
 		indexBar:     indexBar,
 	}
 }
 
-func (c *CloseAbove) Check() bool {
+func (c *FirstAboveSecond) Check() bool {
 	firstValues := c.firstValues
 	secondValues := c.secondValues
 	if firstValues[len(firstValues)-c.indexBar] > secondValues[len(secondValues)-c.indexBar] {
