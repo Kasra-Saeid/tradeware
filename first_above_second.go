@@ -6,7 +6,7 @@ type FirstAboveSecond struct {
 	indexBar     int
 }
 
-func NewCloseAbove(firstValues, SecondValues []float64, indexBar int) *FirstAboveSecond {
+func NewFirstAboveSecond(firstValues, SecondValues []float64, indexBar int) *FirstAboveSecond {
 	return &FirstAboveSecond{
 		firstValues:  firstValues,
 		secondValues: SecondValues,

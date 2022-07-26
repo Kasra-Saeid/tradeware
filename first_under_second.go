@@ -6,7 +6,7 @@ type FirstUnderSecond struct {
 	indexBar     int
 }
 
-func NewCloseUnder(firstValues, SecondValues []float64, indexBar int) *FirstUnderSecond {
+func NewFirstUnderSecond(firstValues, SecondValues []float64, indexBar int) *FirstUnderSecond {
 	return &FirstUnderSecond{
 		firstValues:  firstValues,
 		secondValues: SecondValues,
