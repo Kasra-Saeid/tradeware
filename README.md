@@ -37,14 +37,14 @@ import (
 )
 
 func main() {
-    firstIndicator := []{100, 102, 101, ... }
-    secondIndicator := []{102, 104, 105, ... }
+    firstIndicator := []float64{100, 102, 101, ... }
+    secondIndicator := []float64{102, 104, 105, ... }
     
     // Create a rule condition for a crossup between two indicators
     crossupCondition := tw.NewCrossUp(firstIndicator, secondIndicator, 1)
 
     // Create a rule condition for the first indicator being below the second
-    belowCondition := tw.NewFirstIndicatorBelowSecond(firstIndicator, secondIndicator, 1, 1)
+    belowCondition := tw.NewFirstBelowSecond(firstIndicator, secondIndicator, 1, 1)
 
     // Combine conditions using the And operator
     andCondition := tw.NewAnd(crossupCondition, belowCondition)
